@@ -451,3 +451,127 @@ Traceback (most recent call last):
   File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/autograd/graph.py", line 829, in _engine_run_backward
     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
 torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 188.00 MiB. GPU 0 has a total capacity of 7.70 GiB of which 29.56 MiB is free. Process 1154308 has 5.17 GiB memory in use. Including non-PyTorch memory, this process has 2.47 GiB memory in use. Of the allocated memory 2.34 GiB is allocated by PyTorch, and 21.84 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[2025-11-30 23:40:13,471: INFO: main:  stage Data Ingestion stage started ......]
+[2025-11-30 23:40:13,472: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:40:13,473: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:40:13,473: INFO: common: created directory at: artifacts]
+[2025-11-30 23:40:13,473: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-11-30 23:40:13,473: INFO: data_ingestion: File already exists of size: ~ 7718 KB]
+[2025-11-30 23:40:13,570: INFO: main:  stage Data Ingestion stage completed ......
+
+x==========x]
+[2025-11-30 23:40:13,570: INFO: main:  stage Data Validation stage started ......]
+[2025-11-30 23:40:13,572: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:40:13,572: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:40:13,573: INFO: common: created directory at: artifacts]
+[2025-11-30 23:40:13,573: INFO: common: created directory at: artifacts/data_validation]
+[2025-11-30 23:40:13,573: INFO: main:  stage Data Validation stage completed ......
+
+x==========x]
+[2025-11-30 23:40:13,573: INFO: main:  stage Data Transformation stage started ......]
+[2025-11-30 23:40:13,575: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:40:13,575: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:40:13,575: INFO: common: created directory at: artifacts]
+[2025-11-30 23:40:13,575: INFO: common: created directory at: artifacts/data_transformation]
+[2025-11-30 23:40:15,199: INFO: main:  stage Data Transformation stage completed ......
+
+x==========x]
+[2025-11-30 23:40:15,199: INFO: main: *******************]
+[2025-11-30 23:40:15,199: INFO: main:  stage Model Trainer stage started ......]
+[2025-11-30 23:40:15,200: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:40:15,201: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:40:15,201: INFO: common: created directory at: artifacts]
+[2025-11-30 23:40:15,201: INFO: common: created directory at: artifacts/model_trainer]
+[2025-11-30 23:40:22,240: ERROR: main: CUDA out of memory. Tried to allocate 188.00 MiB. GPU 0 has a total capacity of 7.70 GiB of which 29.56 MiB is free. Process 1154308 has 5.17 GiB memory in use. Including non-PyTorch memory, this process has 2.47 GiB memory in use. Of the allocated memory 2.34 GiB is allocated by PyTorch, and 21.84 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)]
+Traceback (most recent call last):
+  File "/home/pal194/text_summarizer/main.py", line 51, in <module>
+    model_trainer.main()
+  File "/home/pal194/text_summarizer/src/textSummarizer/pipeline/stage_04_model_trainer.py", line 14, in main
+    model_trainer_config.train()
+  File "/home/pal194/text_summarizer/src/textSummarizer/components/model_trainer.py", line 110, in train
+    trainer.train()
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/transformers/trainer.py", line 2325, in train
+    return inner_training_loop(
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/transformers/trainer.py", line 2674, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/transformers/trainer.py", line 4071, in training_step
+    self.accelerator.backward(loss, **kwargs)
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/accelerate/accelerator.py", line 2734, in backward
+    loss.backward(**kwargs)
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/_tensor.py", line 647, in backward
+    torch.autograd.backward(
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/autograd/__init__.py", line 354, in backward
+    _engine_run_backward(
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/autograd/graph.py", line 829, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 188.00 MiB. GPU 0 has a total capacity of 7.70 GiB of which 29.56 MiB is free. Process 1154308 has 5.17 GiB memory in use. Including non-PyTorch memory, this process has 2.47 GiB memory in use. Of the allocated memory 2.34 GiB is allocated by PyTorch, and 21.84 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[2025-11-30 23:43:12,843: INFO: main: *******************]
+[2025-11-30 23:43:12,843: INFO: main:  stage Model Trainer stage started ......]
+[2025-11-30 23:43:12,844: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:43:12,845: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:43:12,845: INFO: common: created directory at: artifacts]
+[2025-11-30 23:43:12,845: INFO: common: created directory at: artifacts/model_trainer]
+[2025-11-30 23:43:19,922: ERROR: main: CUDA out of memory. Tried to allocate 188.00 MiB. GPU 0 has a total capacity of 7.70 GiB of which 29.56 MiB is free. Process 1154308 has 5.17 GiB memory in use. Including non-PyTorch memory, this process has 2.47 GiB memory in use. Of the allocated memory 2.34 GiB is allocated by PyTorch, and 21.84 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)]
+Traceback (most recent call last):
+  File "/home/pal194/text_summarizer/main.py", line 51, in <module>
+    model_trainer.main()
+  File "/home/pal194/text_summarizer/src/textSummarizer/pipeline/stage_04_model_trainer.py", line 14, in main
+    model_trainer_config.train()
+  File "/home/pal194/text_summarizer/src/textSummarizer/components/model_trainer.py", line 110, in train
+    trainer.train()
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/transformers/trainer.py", line 2325, in train
+    return inner_training_loop(
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/transformers/trainer.py", line 2674, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/transformers/trainer.py", line 4071, in training_step
+    self.accelerator.backward(loss, **kwargs)
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/accelerate/accelerator.py", line 2734, in backward
+    loss.backward(**kwargs)
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/_tensor.py", line 647, in backward
+    torch.autograd.backward(
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/autograd/__init__.py", line 354, in backward
+    _engine_run_backward(
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/autograd/graph.py", line 829, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 188.00 MiB. GPU 0 has a total capacity of 7.70 GiB of which 29.56 MiB is free. Process 1154308 has 5.17 GiB memory in use. Including non-PyTorch memory, this process has 2.47 GiB memory in use. Of the allocated memory 2.34 GiB is allocated by PyTorch, and 21.84 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[2025-11-30 23:45:05,821: INFO: main: *******************]
+[2025-11-30 23:45:05,821: INFO: main:  stage Model Trainer stage started ......]
+[2025-11-30 23:45:05,822: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:45:05,823: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:45:05,823: INFO: common: created directory at: artifacts]
+[2025-11-30 23:45:05,823: INFO: common: created directory at: artifacts/model_trainer]
+[2025-11-30 23:45:13,680: ERROR: main: CUDA out of memory. Tried to allocate 188.00 MiB. GPU 0 has a total capacity of 7.70 GiB of which 29.56 MiB is free. Process 1154308 has 5.17 GiB memory in use. Including non-PyTorch memory, this process has 2.47 GiB memory in use. Of the allocated memory 2.34 GiB is allocated by PyTorch, and 21.84 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)]
+Traceback (most recent call last):
+  File "/home/pal194/text_summarizer/main.py", line 51, in <module>
+    model_trainer.main()
+  File "/home/pal194/text_summarizer/src/textSummarizer/pipeline/stage_04_model_trainer.py", line 14, in main
+    model_trainer_config.train()
+  File "/home/pal194/text_summarizer/src/textSummarizer/components/model_trainer.py", line 110, in train
+    trainer.train()
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/transformers/trainer.py", line 2325, in train
+    return inner_training_loop(
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/transformers/trainer.py", line 2674, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/transformers/trainer.py", line 4071, in training_step
+    self.accelerator.backward(loss, **kwargs)
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/accelerate/accelerator.py", line 2734, in backward
+    loss.backward(**kwargs)
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/_tensor.py", line 647, in backward
+    torch.autograd.backward(
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/autograd/__init__.py", line 354, in backward
+    _engine_run_backward(
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/autograd/graph.py", line 829, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 188.00 MiB. GPU 0 has a total capacity of 7.70 GiB of which 29.56 MiB is free. Process 1154308 has 5.17 GiB memory in use. Including non-PyTorch memory, this process has 2.47 GiB memory in use. Of the allocated memory 2.34 GiB is allocated by PyTorch, and 21.84 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[2025-11-30 23:46:45,414: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:46:45,415: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:46:45,416: INFO: common: created directory at: artifacts]
+[2025-11-30 23:46:45,416: INFO: common: created directory at: artifacts/model_trainer]
+[2025-11-30 23:47:19,791: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:47:19,793: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:47:19,794: INFO: common: created directory at: artifacts]
+[2025-11-30 23:47:19,795: INFO: common: created directory at: artifacts/model_trainer]
+[2025-11-30 23:47:38,275: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:47:38,277: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:47:38,278: INFO: common: created directory at: artifacts]
+[2025-11-30 23:47:38,278: INFO: common: created directory at: artifacts/model_trainer]
