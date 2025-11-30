@@ -25,7 +25,7 @@ https://github.com/biprodip/text_summarizer
 ### STEP 01- Create a conda environment after opening the repository
 
 ```bash
-conda create -n summary python=3.10 -y
+conda create -n summary python=3.9 -y
 ```
 
 ```bash
@@ -69,7 +69,7 @@ Email: biprodip.cse@gmail.com
 
 	1. EC2 access : It is virtual machine
 
-	2. ECR: Elastic Container registry to save your docker image in aws
+	2. ECR: Elastic container registry to save docker image in aws
 
 
 	#Description: About the deployment
@@ -92,7 +92,7 @@ Email: biprodip.cse@gmail.com
 
 	
 ## 3. Create ECR repo to store/save docker image
-    - Save the URI: 566373416292.dkr.ecr.us-east-1.amazonaws.com/text-s
+    - Save the URI: 
 
 	
 ## 4. Create EC2 machine (Ubuntu) 
@@ -128,6 +128,6 @@ Email: biprodip.cse@gmail.com
 
     AWS_REGION = us-east-1
 
-    AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
+    AWS_ECR_LOGIN_URI = demo>>  saved URI from step 3
 
     ECR_REPOSITORY_NAME = simple-app
